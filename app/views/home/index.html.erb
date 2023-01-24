@@ -1,0 +1,45 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Име</th>
+      <th scope="col">Презиме</th>
+      <th scope="col">Фамилия</th>
+      <th scope="col">Позиция</th>
+      <th scope="col">Секция</th>
+      <th scope="col">Град</th>
+      <th scope="col">Потвърдил</th>
+      <th scope="col">Обучение</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sections.each do |section| %>
+      <% section.people.each do |person| %>
+        <tr>
+          <td><%= person.first_name %></td>
+          <td><%= person.second_name %></td>
+          <td><%= person.last_name %></td>
+          <td><%= person.position %></td>
+          <td><%= section.number %> <%= link_to "(+)", new_person_path(section_id: section) %></td>
+          <td><%= section.name %></td>
+          <td><%= person.confirmed? %></td>
+          <td><%= person.trained? %></td>
+          <td><%= link_to "Редактиране", edit_person_path(person) %></td>
+        </tr>
+      <% end %>
+      <% if section.people.empty? %>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><%= section.number %> <%= link_to "(+)", new_person_path(section_id: section) %></td>
+          <td><%= section.name %></td>
+          <td></td>
+          <td></td>
+          <td><%= link_to "Добавяне", new_person_path(section_id: section) %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

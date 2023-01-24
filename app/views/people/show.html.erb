@@ -1,0 +1,19 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to "Начало", root_path %></li>
+    <li class="breadcrumb-item active mr-auto" aria-current="page"><%= @person.first_name %></li>
+  </ol>
+</nav>
+<div class="card">
+  <h5 class="card-header"><%= "#{@person.first_name} в #{@person.section.name} / #{@person.section.number}" %></h5>
+    <p>Име: <%= @person.first_name %>
+    <p>Презиме: <%= @person.second_name %>
+    <p>Фамилия: <%= @person.last_name %>
+    <p>ЕГН: <%= @person.egn %>
+    <p>Email: <%= @person.email %>
+    <p>Образование: <%= @person.education %>
+    <p>Позиция: <%= @person.position %>
+    <p>Телефон: <%= @person.phone %>
+    <p>Потвърдил: <%= @person.confirmed %>
+    <p>Обучение: <%= @person.trained %>
+</div>

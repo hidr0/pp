@@ -1,0 +1,7 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to "Начало", root_path %></li>
+    <li class="breadcrumb-item active" aria-current="page">Добавяне</li>
+  </ol>
+</nav>
+<%= render 'form', person: @person, title: "Добавяне на човек в #{@section.name} / #{@section.number}" %>

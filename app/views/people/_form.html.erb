@@ -1,0 +1,55 @@
+<%= form_with(model: person, local: true) do |form| -%>
+<div class="card">
+  <h5 class="card-header mb-2"><%= title %></h5>
+
+  <% if person.errors.any? %>
+    <% person.errors.full_messages.each do |message| %>
+    <div class="alert alert-danger" role="alert">
+      <%= message %>
+    </div>
+    <% end %>
+  <% end %>
+
+  <ul class="list-group list-group-flush">
+    <%= form.label :first_name, "Име", class: "pt-2" %>
+    <%= form.text_field :first_name %>
+
+    <%= form.label :second_name, "Презиме", class: "pt-2" %>
+    <%= form.text_field :second_name %>
+
+    <%= form.label :last_name, "Фамилия", class: "pt-2" %>
+    <%= form.text_field :last_name %>
+
+    <%= form.label :egn, "ЕГН", class: "pt-2" %>
+    <%= form.text_field :egn %>
+
+    <%= form.label :email, "Email", class: "pt-2" %>
+    <%= form.text_field :email %>
+
+    <%= form.label :education, "Образование", class: "pt-2" %>
+    <%= form.text_field :education %>
+
+    <%= form.label :position, "Позиция", class: "pt-2" %>
+    <%= form.text_field :position %>
+
+
+    <%= form.label :phone, "Телефон", class: "pt-2" %>
+    <%= form.text_field :phone %>
+
+    <%= form.label :confirmed, "Потвърдил", class: "pt-2" %>
+    <%= form.check_box :confirmed %>
+
+    <%= form.label :trained, "Обучение", class: "pt-2" %>
+    <%= form.check_box :trained %>
+
+    <%= form.hidden_field :section_id %>
+
+  </ul>
+  <div class="card-footer">
+    <%= link_to "Cancel", person, class: 'btn btn-outline-secondary float-start' if person.persisted? %>
+    <%= link_to "Cancel", people_path, class: 'btn btn-outline-secondary float-start' if !person.persisted? %>
+    <%= form.submit "Save", class: "btn btn-primary float-end" if person.persisted? %>
+    <%= form.submit "Create", class: "btn btn-primary float-end" if !person.persisted? %>
+  </div>
+</div>
+<% end %>
