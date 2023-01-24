@@ -79,3 +79,7 @@ gem "devise"
 group :development, :test do
   gem "factory_bot_rails"
 end
+
+group :development, :test do
+  gem "rspec-rails"
+end
